@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  user-nextjs:
+    build:
+      context: ./user-nextjs
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    container_name: groundwale-user
+    restart: unless-stopped
+
+  admin-vite:
+    build:
+      context: ./admin-vite
+      dockerfile: Dockerfile
+    ports:
+      - "4000:80"
+    container_name: groundwale-admin
+    restart: unless-stopped
