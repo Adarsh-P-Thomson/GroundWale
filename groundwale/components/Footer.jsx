@@ -121,10 +121,10 @@ export default function Footer() {
             <a href="#" className="footer-link">
               Cancellation Policy
             </a>
-            <a href="#" className="footer-link">
+            <a href="/terms" className="footer-link">
               Terms & Conditions
             </a>
-            <a href="#" className="footer-link">
+            <a href="/privacy" className="footer-link">
               Privacy Policy
             </a>
           </div>
@@ -149,47 +149,47 @@ export default function Footer() {
         .footer-container {
           background-color: #ffffff;
           color: #000000;
-          padding: 80px 6cm 60px 6cm;
+          padding: clamp(40px, 8vw, 80px) clamp(1.5rem, 5vw, 6cm) clamp(30px, 6vw, 60px);
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
         }
 
         .footer-content {
-          max-width: 100%;
+          max-width: 1600px;
           margin: 0 auto;
         }
 
         .newsletter-section {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 80px;
-          margin-bottom: 60px;
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+          gap: clamp(30px, 6vw, 80px);
+          margin-bottom: clamp(30px, 5vw, 60px);
           align-items: center;
         }
 
         .newsletter-text {
-          max-width: 500px;
+          max-width: 600px;
         }
 
         .join-script {
           font-family: 'Brush Script MT', cursive;
           color: #ff9222;
-          font-size: 32px;
+          font-size: clamp(24px, 3vw, 32px);
           margin-bottom: 8px;
           font-weight: 400;
         }
 
         .newsletter-title {
-          font-size: 42px;
+          font-size: clamp(32px, 4.5vw, 42px);
           font-weight: 400;
           line-height: 1.2;
-          margin: 0 0 20px 0;
+          margin: 0 0 clamp(12px, 2vw, 20px) 0;
           color: #000000;
           font-family: 'Playfair Display', Georgia, serif;
         }
 
         .newsletter-description {
           color: #000000;
-          font-size: 16px;
+          font-size: clamp(14px, 1.5vw, 16px);
           line-height: 1.6;
           margin: 0;
         }
@@ -198,7 +198,8 @@ export default function Footer() {
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          gap: 40px;
+          gap: clamp(20px, 4vw, 40px);
+          flex-wrap: wrap;
         }
 
         .phone-image-container {
@@ -206,28 +207,33 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          width: 6cm;
-          height: 6cm;
+          width: clamp(120px, 20vw, 220px);
+          height: clamp(120px, 20vw, 220px);
           position: relative;
-          left: -1cm;
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .phone-image-container:hover {
+          transform: scale(1.05) rotate(2deg);
         }
 
         .phone-image {
-          width: 6cm;
-          height: 6cm;
+          width: 100%;
+          height: 100%;
           object-fit: cover;
+          transition: transform 0.3s ease;
         }
 
         .app-download-section {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 20px;
+          gap: clamp(12px, 2vw, 20px);
         }
 
         .logo-container {
-          width: 160px;
-          height: 80px;
+          width: clamp(120px, 15vw, 160px);
+          height: clamp(60px, 8vw, 80px);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -240,27 +246,38 @@ export default function Footer() {
         }
 
         .tagline-text {
-          font-size: 18px;
+          font-size: clamp(14px, 1.6vw, 18px);
           color: #888888;
           margin: -10px 0 0 0;
           font-weight: 400;
+          text-align: center;
         }
 
         .app-buttons-container {
           display: flex;
           flex-direction: row;
           align-items: center;
-          gap: 20px;
+          gap: clamp(12px, 2vw, 20px);
           background-color: #0067bb;
-          padding: 12px 14px;
-          border-radius: 8px;
+          padding: clamp(10px, 1.5vw, 14px) clamp(12px, 1.8vw, 16px);
+          border-radius: 10px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        
+        .app-buttons-container:hover {
+          background-color: #0052a3;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(0, 103, 187, 0.3);
         }
 
         .get-app-text {
-          font-size: 22px;
+          font-size: clamp(16px, 2vw, 22px);
           font-weight: 400;
           color: #ffffff;
           margin: 0;
+          white-space: nowrap;
         }
 
         .store-icon-link {
@@ -268,30 +285,33 @@ export default function Footer() {
           align-items: center;
           justify-content: center;
           text-decoration: none;
-          transition: transform 0.3s ease;
+          transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
+          padding: 4px;
+          border-radius: 6px;
         }
 
         .store-icon-link:hover {
-          transform: scale(1.1);
+          transform: scale(1.15);
+          background-color: rgba(255, 255, 255, 0.1);
         }
 
         .store-icon {
-          width: 36px;
-          height: 36px;
+          width: clamp(28px, 3.5vw, 36px);
+          height: clamp(28px, 3.5vw, 36px);
           color: #ffffff;
         }
 
         .divider {
           height: 1px;
-          background-color: #e0e0e0;
-          margin-bottom: 60px;
+          background: linear-gradient(90deg, transparent, #e0e0e0 20%, #e0e0e0 80%, transparent);
+          margin-bottom: clamp(30px, 5vw, 60px);
         }
 
         .footer-links-section {
           display: grid;
-          grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
-          gap: 60px;
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+          gap: clamp(30px, 5vw, 60px);
         }
 
         .footer-column {
@@ -300,10 +320,10 @@ export default function Footer() {
         }
 
         .column-title {
-          font-size: 20px;
-          font-weight: 400;
+          font-size: clamp(18px, 2vw, 20px);
+          font-weight: 500;
           color: #000000;
-          margin: 0 0 24px 0;
+          margin: 0 0 clamp(16px, 2.5vw, 24px) 0;
           position: relative;
           padding-bottom: 12px;
           font-family: 'Playfair Display', Georgia, serif;
@@ -316,141 +336,225 @@ export default function Footer() {
           width: 40px;
           height: 2px;
           background-color: #ff9222;
+          transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .footer-column:hover .title-underline {
+          width: 60px;
         }
 
         .footer-link, .contact-link {
           color: #000000;
           text-decoration: none;
-          margin-bottom: 14px;
-          font-size: 15px;
-          transition: color 0.3s ease;
+          margin-bottom: clamp(10px, 1.5vw, 14px);
+          font-size: clamp(13px, 1.4vw, 15px);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           display: inline-block;
+          position: relative;
+          width: fit-content;
+        }
+        
+        .footer-link::before, .contact-link::before {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 1.5px;
+          background-color: #0088cc;
+          transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .footer-link:hover, .contact-link:hover {
-          color: #0088CC;
+          color: #0088cc;
+          transform: translateX(4px);
+        }
+        
+        .footer-link:hover::before, .contact-link:hover::before {
+          width: 100%;
         }
 
         .contact-address {
           color: #000000;
-          font-size: 15px;
+          font-size: clamp(13px, 1.4vw, 15px);
           line-height: 1.6;
-          margin: 0 0 28px 0;
+          margin: 0 0 clamp(20px, 3vw, 28px) 0;
         }
 
         .social-icons {
           display: flex;
-          gap: 12px;
+          gap: clamp(10px, 1.5vw, 14px);
+          flex-wrap: wrap;
         }
 
         .social-icon {
-          width: 38px;
-          height: 38px;
-          border: 1px solid #ff9222;
+          width: clamp(36px, 4vw, 42px);
+          height: clamp(36px, 4vw, 42px);
+          border: 1.5px solid #ff9222;
+          border-radius: 8px;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #ff9222;
-          transition: all 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           text-decoration: none;
         }
 
         .social-icon:hover {
           background-color: #ff9222;
           color: #ffffff;
+          transform: translateY(-3px) rotate(5deg);
+          box-shadow: 0 6px 16px rgba(255, 146, 34, 0.3);
         }
 
         .instagram-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 10px;
+          gap: clamp(8px, 1.2vw, 12px);
+          max-width: 320px;
         }
 
         .instagram-image {
           aspect-ratio: 1;
           width: 100%;
-          transition: opacity 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
+          border-radius: 8px;
         }
 
         .instagram-image:hover {
           opacity: 0.8;
+          transform: scale(1.05);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design - Fluid and Mobile Optimized */
+        @media (max-width: 1400px) {
+          .footer-links-section {
+            gap: clamp(25px, 4vw, 50px);
+          }
         }
 
         @media (max-width: 1200px) {
           .footer-container {
-            padding: 60px 3cm 50px 3cm;
-          }
-          .footer-links-section {
-            gap: 40px;
-          }
-          .phone-image-container {
-            width: 5cm;
-            height: 5cm;
-          }
-          .phone-image {
-            width: 5cm;
-            height: 5cm;
+            padding: clamp(50px, 7vw, 70px) clamp(2rem, 4vw, 4cm) clamp(40px, 5vw, 50px);
           }
         }
 
         @media (max-width: 992px) {
-          .footer-container {
-            padding: 50px 40px 40px 40px;
+          .newsletter-section {
+            gap: clamp(30px, 5vw, 50px);
           }
+          
+          .app-buttons-wrapper {
+            justify-content: center;
+          }
+          
+          .footer-links-section {
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+            gap: clamp(25px, 4vw, 40px);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .footer-container {
+            padding: clamp(40px, 6vw, 50px) clamp(1.5rem, 4vw, 2.5rem) clamp(30px, 4vw, 40px);
+          }
+          
           .newsletter-section {
             grid-template-columns: 1fr;
             gap: 40px;
           }
+          
+          .newsletter-text {
+            text-align: center;
+          }
+          
           .app-buttons-wrapper {
-            justify-content: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            gap: 25px;
           }
+          
           .phone-image-container {
-            width: 4.5cm;
-            height: 4.5cm;
+            width: clamp(140px, 25vw, 180px);
+            height: clamp(140px, 25vw, 180px);
           }
-          .phone-image {
-            width: 4.5cm;
-            height: 4.5cm;
-          }
+          
           .footer-links-section {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-          }
-          .instagram-column {
-            grid-column: span 2;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+            gap: 30px;
           }
         }
 
         @media (max-width: 640px) {
           .footer-container {
-            padding: 40px 24px 32px 24px;
+            padding: 40px 1.5rem 30px;
           }
+          
           .newsletter-title {
-            font-size: 32px;
+            font-size: clamp(28px, 6vw, 36px);
           }
-          .app-buttons-wrapper {
-            flex-direction: column;
-            gap: 30px;
+          
+          .app-download-section {
+            width: 100%;
           }
-          .phone-image-container {
-            width: 4cm;
-            height: 4cm;
+          
+          .app-buttons-container {
+            flex-direction: row;
+            gap: 12px;
+            padding: 10px 12px;
           }
-          .phone-image {
-            width: 4cm;
-            height: 4cm;
-          }
+          
           .footer-links-section {
             grid-template-columns: 1fr;
-            gap: 36px;
+            gap: 32px;
           }
-          .instagram-column {
-            grid-column: span 1;
-          }
+          
           .instagram-grid {
+            max-width: 100%;
             grid-template-columns: repeat(3, 1fr);
-            max-width: 320px;
+          }
+          
+          .social-icons {
+            justify-content: flex-start;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .footer-container {
+            padding: 32px 1rem 24px;
+          }
+          
+          .phone-image-container {
+            width: clamp(100px, 30vw, 140px);
+            height: clamp(100px, 30vw, 140px);
+          }
+          
+          .app-buttons-wrapper {
+            gap: 20px;
+          }
+          
+          .get-app-text {
+            font-size: 16px;
+          }
+          
+          .store-icon {
+            width: 24px;
+            height: 24px;
+          }
+          
+          .footer-links-section {
+            gap: 28px;
+          }
+        }
+
+        /* Smooth animations */
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
           }
         }
       `}</style>

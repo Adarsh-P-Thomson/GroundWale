@@ -370,6 +370,7 @@ export default function Header() {
   const [isModalOpen, setModalOpen] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [notification, setNotification] = useState(null)
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
 
   const handleLoginSuccess = () => {
