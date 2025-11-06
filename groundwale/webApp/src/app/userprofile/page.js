@@ -3,10 +3,11 @@ import { useState } from 'react';
 
 export default function Userprofile() {
   const [activeSection, setActiveSection] = useState('bookings');
-  const [firstName, setFirstName] = useState('Abdul');
-  const [lastName, setLastName] = useState('Saboor');
-  const [email, setEmail] = useState('info@wizerdui.com');
-  const [phone, setPhone] = useState('+1 234 567 8900');
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [firstName, setFirstName] = useState('Kaushik');
+  const [lastName, setLastName] = useState('Raj');
+  const [email, setEmail] = useState('info@gmail.com');
+  const [phone, setPhone] = useState('+0000000000');
 
   const bookings = [
     {
@@ -15,7 +16,7 @@ export default function Userprofile() {
       date: '2025-10-25',
       time: '10:00 AM - 12:00 PM',
       status: 'Confirmed',
-      amount: '$150',
+      amount: '₹150',
       sport: 'Football',
       location: 'Downtown'
     },
@@ -25,7 +26,7 @@ export default function Userprofile() {
       date: '2025-10-28',
       time: '2:00 PM - 4:00 PM',
       status: 'Pending',
-      amount: '$200',
+      amount: '₹200',
       sport: 'Cricket',
       location: 'Uptown'
     },
@@ -35,18 +36,18 @@ export default function Userprofile() {
       date: '2025-10-22',
       time: '6:00 PM - 8:00 PM',
       status: 'Completed',
-      amount: '$120',
+      amount: '₹120',
       sport: 'Basketball',
       location: 'Eastside'
     }
   ];
 
   const transactions = [
-    { id: 1, date: '2025-10-20', description: 'Booking Payment - Central Sports Complex', amount: '-$150', type: 'debit' },
-    { id: 2, date: '2025-10-18', description: 'Wallet Topup', amount: '+$500', type: 'credit' },
-    { id: 3, date: '2025-10-15', description: 'Booking Payment - Elite Cricket Ground', amount: '-$200', type: 'debit' },
-    { id: 4, date: '2025-10-12', description: 'Refund - Cancelled Booking', amount: '+$180', type: 'credit' },
-    { id: 5, date: '2025-10-10', description: 'Booking Payment - Premium Basketball Court', amount: '-$120', type: 'debit' }
+    { id: 1, date: '2025-10-20', description: 'Booking Payment - Central Sports Complex', amount: '-₹150', type: 'debit' },
+    { id: 2, date: '2025-10-18', description: 'Wallet Topup', amount: '+₹500', type: 'credit' },
+    { id: 3, date: '2025-10-15', description: 'Booking Payment - Elite Cricket Ground', amount: '-₹200', type: 'debit' },
+    { id: 4, date: '2025-10-12', description: 'Refund - Cancelled Booking', amount: '+₹180', type: 'credit' },
+    { id: 5, date: '2025-10-10', description: 'Booking Payment - Premium Basketball Court', amount: '-₹120', type: 'debit' }
   ];
 
   const handleSaveProfile = () => {
@@ -70,14 +71,14 @@ export default function Userprofile() {
       </div>
 
       <div className="filter-tabs">
-        <button className="filter-tab active">All</button>
-        <button className="filter-tab">Upcoming</button>
-        <button className="filter-tab">Completed</button>
-        <button className="filter-tab">Cancelled</button>
+        <button className={`filter-tab ${activeFilter === 'All' ? 'active' : ''}`} onClick={() => setActiveFilter('All')}>All</button>
+        <button className={`filter-tab ${activeFilter === 'Upcoming' ? 'active' : ''}`} onClick={() => setActiveFilter('Upcoming')}>Upcoming</button>
+        <button className={`filter-tab ${activeFilter === 'Completed' ? 'active' : ''}`} onClick={() => setActiveFilter('Completed')}>Completed</button>
+        <button className={`filter-tab ${activeFilter === 'Cancelled' ? 'active' : ''}`} onClick={() => setActiveFilter('Cancelled')}>Cancelled</button>
       </div>
 
       <div className="bookings-grid">
-        {bookings.map((booking) => (
+        {bookings.filter(booking => activeFilter === 'All' || booking.status === activeFilter).map((booking) => (
           <div key={booking.id} className="booking-card">
             <div className="booking-header">
               <h3 className="booking-title">{booking.groundName}</h3>
@@ -130,7 +131,7 @@ export default function Userprofile() {
       <div className="wallet-balance-card">
         <div className="balance-content">
           <p className="balance-label">Available Balance</p>
-          <h2 className="balance-amount">$1,250.00</h2>
+          <h2 className="balance-amount">₹1,250.00</h2>
           <p className="balance-subtitle">Last updated: Today at 3:45 PM</p>
         </div>
         <button className="btn-primary" onClick={handleTopup}>+ Add Money</button>
@@ -146,7 +147,7 @@ export default function Userprofile() {
           </div>
           <div className="stat-content">
             <p className="stat-label">Total Received</p>
-            <p className="stat-value">$680.00</p>
+            <p className="stat-value">₹680.00</p>
           </div>
         </div>
 
@@ -159,7 +160,7 @@ export default function Userprofile() {
           </div>
           <div className="stat-content">
             <p className="stat-label">Total Spent</p>
-            <p className="stat-value">$470.00</p>
+            <p className="stat-value">₹470.00</p>
           </div>
         </div>
 
@@ -429,12 +430,13 @@ export default function Userprofile() {
 
         .sidebar {
           width: 320px;
-          background: linear-gradient(180deg, #f5e6d3 0%, #e8d4bc 100%);
+          background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
           padding: 60px 30px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          position: relative;
+          position: fixed;
+          height: 100vh;
           overflow: hidden;
           border-right: 1px solid rgba(0, 0, 0, 0.05);
         }
@@ -524,8 +526,8 @@ export default function Userprofile() {
         }
 
         .nav-item.active {
-          background: rgba(212, 82, 42, 0.15);
-          color: #d4522a;
+          background: rgba(255, 152, 0, 0.15);
+          color: #ff9800;
         }
 
         .nav-item svg {
@@ -535,6 +537,7 @@ export default function Userprofile() {
 
         .main-content {
           flex: 1;
+          margin-left: 320px;
           padding: 60px 80px;
           background-color: #fafafa;
           overflow-y: auto;
@@ -585,13 +588,13 @@ export default function Userprofile() {
         }
 
         .filter-tab:hover {
-          border-color: #d4522a;
-          color: #d4522a;
+          border-color: #ff9800;
+          color: #ff9800;
         }
 
         .filter-tab.active {
-          background: #d4522a;
-          border-color: #d4522a;
+          background: #ff9800;
+          border-color: #ff9800;
           color: #ffffff;
         }
 
@@ -668,7 +671,7 @@ export default function Userprofile() {
         }
 
         .detail-row svg {
-          color: #d4522a;
+          color: #ff9800;
         }
 
         .booking-footer {
@@ -691,7 +694,7 @@ export default function Userprofile() {
         }
 
         .wallet-balance-card {
-          background: linear-gradient(135deg, #d4522a 0%, #c04020 100%);
+          background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
           border-radius: 20px;
           padding: 40px;
           color: #ffffff;
@@ -699,7 +702,7 @@ export default function Userprofile() {
           justify-content: space-between;
           align-items: center;
           margin-bottom: 32px;
-          box-shadow: 0 8px 24px rgba(212, 82, 42, 0.25);
+          box-shadow: 0 8px 24px rgba(25, 118, 210, 0.25);
         }
 
         .balance-label {
@@ -891,8 +894,8 @@ export default function Userprofile() {
 
         .form-input:focus {
           background-color: #ffffff;
-          border-color: #d4522a;
-          box-shadow: 0 0 0 3px rgba(212, 82, 42, 0.1);
+          border-color: #ff9800;
+          box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
         }
 
         .form-textarea {
@@ -910,8 +913,8 @@ export default function Userprofile() {
 
         .form-textarea:focus {
           background-color: #ffffff;
-          border-color: #d4522a;
-          box-shadow: 0 0 0 3px rgba(212, 82, 42, 0.1);
+          border-color: #ff9800;
+          box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.1);
         }
 
         .preferences-grid {
@@ -939,7 +942,7 @@ export default function Userprofile() {
           width: 20px;
           height: 20px;
           cursor: pointer;
-          accent-color: #d4522a;
+          accent-color: #ff9800;
         }
 
         .preference-label {
@@ -990,11 +993,11 @@ export default function Userprofile() {
           width: 48px;
           height: 48px;
           border-radius: 12px;
-          background: linear-gradient(135deg, #f5e6d3 0%, #e8d4bc 100%);
+          background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #d4522a;
+          color: #1976d2;
           flex-shrink: 0;
         }
 
@@ -1029,17 +1032,17 @@ export default function Userprofile() {
           font-size: 15px;
           font-weight: 600;
           color: #ffffff;
-          background: linear-gradient(135deg, #d4522a 0%, #c04020 100%);
+          background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
           border: none;
           border-radius: 10px;
           cursor: pointer;
           transition: all 0.3s ease;
-          box-shadow: 0 4px 12px rgba(212, 82, 42, 0.3);
+          box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
         }
 
         .btn-primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 20px rgba(212, 82, 42, 0.4);
+          box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
         }
 
         .btn-secondary-small {
@@ -1081,6 +1084,7 @@ export default function Userprofile() {
           }
 
           .main-content {
+            margin-left: 280px;
             padding: 40px 40px;
           }
 
@@ -1097,6 +1101,8 @@ export default function Userprofile() {
           .sidebar {
             width: 100%;
             padding: 30px 20px;
+            position: relative;
+            height: auto;
           }
 
           .sidebar-nav {
@@ -1110,6 +1116,7 @@ export default function Userprofile() {
           }
 
           .main-content {
+            margin-left: 0;
             padding: 30px 20px;
           }
 

@@ -39,10 +39,10 @@ export default function Home() {
 
         {/* FAQ Section */}
         <Faq />
-      </main>
+        </main>
 
       {/* Footer */}
       <Footer />
-    </div>
+      </div>
   )
 }
