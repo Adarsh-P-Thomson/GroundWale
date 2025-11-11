@@ -8,7 +8,7 @@ const Header = dynamic(() => import("../../../components/Header.jsx"), { ssr: fa
 const Footer = dynamic(() => import("../../../components/Footer.jsx"), { ssr: false })
 
 export default function PrivacyPolicy() {
-  const lastUpdated = "October 28, 2025"
+  const lastUpdated = "November 09, 2025"
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -40,7 +40,13 @@ export default function PrivacyPolicy() {
               <span className="text-sm">Last Updated: {lastUpdated}</span>
             </div>
             <p className="text-gray-600 mt-4">
-              At Groundwale, we are committed to protecting your privacy and ensuring the security of your personal information.
+              Groundwale ("Company", "we", "us", "our") is committed to respecting the privacy of every person who shares personal information with us via our website www.groundwale.com ("Website") and our mobile application Groundwale ("App").
+            </p>
+            <p className="text-gray-600 mt-4">
+              This Privacy Policy ("Policy") explains how we collect, use, store, disclose, process, and transfer your information. By using the Website/App, you consent to the practices described here. If you do not agree, please do not use the Website/App.
+            </p>
+            <p className="text-gray-600 mt-4 italic text-sm">
+              <strong>Regulatory note:</strong> This Policy is published in accordance with the Information Technology Act, 2000 and applicable rules thereunder. We may update this Policy from time to time; the "Updated" date above will change accordingly. Your continued use signifies acceptance of the updated Policy.
             </p>
           </div>
 
@@ -48,54 +54,35 @@ export default function PrivacyPolicy() {
           <div className="bg-white rounded-2xl shadow-lg p-8 sm:p-12">
             <div className="prose prose-lg max-w-none">
               
-              {/* Introduction */}
+              {/* Scope & Consent */}
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
-                <p className="text-gray-700 mb-4">
-                  Groundwale Technologies Pvt. Ltd. ("we," "our," or "us") operates the Groundwale platform, including our website and mobile applications (collectively, the "Platform"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Platform.
-                </p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Scope & Consent</h2>
                 <p className="text-gray-700">
-                  By accessing or using our Platform, you agree to the terms of this Privacy Policy. If you do not agree with this policy, please do not use our Platform.
+                  By providing information to us (including by accessing/using the Website/App), you consent to our collection, use, storage, disclosure, processing, and transfer of your information as described here. You may withhold or withdraw consent at any time by writing to us (see Contact), but if certain information is necessary to deliver the Services, we may be unable to provide those Services (in whole or part).
                 </p>
               </section>
 
-              {/* Information We Collect */}
+              {/* Personal Information We Collect */}
               <section className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <Database className="w-6 h-6 text-blue-600" />
-                  2. Information We Collect
+                  2. Personal Information We Collect
                 </h2>
-                
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">2.1 Personal Information</h3>
                 <p className="text-gray-700 mb-4">
-                  We collect personal information that you voluntarily provide to us when you:
+                  Depending on how you use Groundwale (as a player/user or as a venue/coach/academy partner), we may collect:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li><strong>Register an account:</strong> Name, email address, phone number, date of birth, gender</li>
-                  <li><strong>Make a booking:</strong> Payment information, billing address, transaction details</li>
-                  <li><strong>Complete your profile:</strong> Profile photo, sports preferences, skill level, location</li>
-                  <li><strong>Contact us:</strong> Communication preferences, customer support inquiries</li>
-                  <li><strong>Participate in surveys:</strong> Feedback, ratings, and reviews</li>
+                  <li><strong>Identity & Contact:</strong> Name, phone number, email, age/date of birth, gender.</li>
+                  <li><strong>Location:</strong> Approximate or precise location (when enabled by you).</li>
+                  <li><strong>Payments & Payouts:</strong> For users—tokenized payment info via payment gateways (we don't store full card data). For partners—bank/UPI details (account holder name, account number, IFSC, UPI ID) to enable settlements.</li>
+                  <li><strong>Device & Log Data:</strong> IP address, device identifiers, OS/app version, usage logs, crash logs, cookies and similar technologies.</li>
+                  <li><strong>Phone Book (optional, with permission):</strong> To help you connect with contacts already on Groundwale.</li>
+                  <li><strong>Communications:</strong> Messages to support, feedback, chat with venues/coaches, and preferences.</li>
+                  <li><strong>Booking Data:</strong> Sports, venues/coaches selected, dates/times, and transaction details.</li>
                 </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">2.2 Automatically Collected Information</h3>
-                <p className="text-gray-700 mb-4">
-                  When you access our Platform, we automatically collect certain information:
+                <p className="text-gray-700 italic text-sm">
+                  We do not require phone-book access unless you explicitly opt in. You can revoke that permission anytime in your device settings.
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li><strong>Device Information:</strong> IP address, browser type, operating system, device identifiers</li>
-                  <li><strong>Usage Data:</strong> Pages viewed, time spent on pages, links clicked, search queries</li>
-                  <li><strong>Location Data:</strong> GPS coordinates, approximate location based on IP address</li>
-                  <li><strong>Cookies and Tracking:</strong> Session data, preferences, analytics information</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">2.3 Information from Third Parties</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li>Social media login data (Google, Facebook, etc.)</li>
-                  <li>Payment gateway information</li>
-                  <li>Analytics and advertising partners</li>
-                  <li>Public databases and data aggregators</li>
-                </ul>
               </section>
 
               {/* How We Use Information */}
@@ -105,267 +92,148 @@ export default function PrivacyPolicy() {
                   3. How We Use Your Information
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  We use the collected information for the following purposes:
+                  We may collect, use, process, and share your Personal Information to:
                 </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">3.1 Service Provision</h3>
                 <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Create and manage your account</li>
-                  <li>Process bookings and payments</li>
-                  <li>Send booking confirmations and updates</li>
-                  <li>Provide customer support and respond to inquiries</li>
-                  <li>Facilitate communication between users and partners</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">3.2 Platform Improvement</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Analyze usage patterns and trends</li>
-                  <li>Conduct research and development</li>
-                  <li>Improve user experience and Platform functionality</li>
-                  <li>Develop new features and services</li>
-                  <li>Detect and prevent fraud, abuse, and security threats</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">3.3 Marketing and Communications</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Send promotional emails and notifications (with your consent)</li>
-                  <li>Provide personalized recommendations</li>
-                  <li>Conduct marketing campaigns and surveys</li>
-                  <li>Display targeted advertisements</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">3.4 Legal and Compliance</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li>Comply with legal obligations and regulations</li>
-                  <li>Enforce our Terms and Conditions</li>
-                  <li>Respond to legal requests and prevent illegal activities</li>
-                  <li>Protect our rights, property, and safety</li>
+                  <li>Provide & operate the Website/App, process bookings, payments, and customer support.</li>
+                  <li>Personalize & improve user experience; conduct analytics, A/B tests, and quality assurance.</li>
+                  <li>Communicate transactional updates (OTP, confirmations, reminders), service messages, and—where permitted—marketing communications.</li>
+                  <li>Enforce our Terms of Use, prevent fraud/abuse, and ensure platform safety and integrity.</li>
+                  <li>Comply with law, respond to legal process, and protect our rights.</li>
+                  <li><strong>Corporate actions:</strong> In case of merger, acquisition, reorganization, or asset sale, your data may be transferred to the successor entity, subject to this Policy.</li>
+                  <li><strong>Anonymisation:</strong> We may remove personal identifiers and use the remaining data for statistical, research, or historical purposes.</li>
                 </ul>
               </section>
 
-              {/* Information Sharing */}
+              {/* Sharing & Disclosures */}
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">4. How We Share Your Information</h2>
-                <p className="text-gray-700 mb-4">
-                  We may share your information in the following circumstances:
-                </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">4.1 Service Providers</h3>
-                <p className="text-gray-700 mb-4">
-                  We share information with third-party service providers who perform services on our behalf:
-                </p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Sharing & Disclosures</h2>
+                <p className="text-gray-700 mb-4">We may share your information with:</p>
                 <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Payment processors (Razorpay, Stripe, PayU, etc.)</li>
-                  <li>Cloud hosting providers (AWS, Google Cloud, Azure)</li>
-                  <li>Analytics services (Google Analytics, Mixpanel, Firebase)</li>
-                  <li>Email and SMS service providers</li>
-                  <li>Customer support tools</li>
-                  <li>Marketing and advertising platforms</li>
+                  <li><strong>Service Providers/Processors:</strong> Hosting, cloud, analytics, customer support, SMS/Email/WhatsApp gateways, payment processors, KYC/verification (where applicable).</li>
+                  <li><strong>Venue/Coach/Academy Partners:</strong> To fulfil your bookings and related services.</li>
+                  <li><strong>Affiliates/Group entities:</strong> For operations consistent with this Policy.</li>
+                  <li><strong>Legal/Regulatory:</strong> Where required by law, court order, or to establish/exercise/defend legal claims.</li>
+                  <li><strong>Business transfers:</strong> As part of merger/acquisition, subject to confidentiality and this Policy.</li>
                 </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">4.2 Partners and Facilities</h3>
-                <p className="text-gray-700 mb-4">
-                  We share necessary booking information with facility owners, coaches, and academies to fulfill your reservations.
-                </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">4.3 Legal Requirements</h3>
-                <p className="text-gray-700 mb-4">
-                  We may disclose your information when required by law or in response to:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Court orders, subpoenas, or legal processes</li>
-                  <li>Government or regulatory requests</li>
-                  <li>Protection of our legal rights</li>
-                  <li>Investigation of fraud or security issues</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">4.4 Business Transfers</h3>
-                <p className="text-gray-700">
-                  In the event of a merger, acquisition, or sale of assets, your information may be transferred to the acquiring entity.
-                </p>
-              </section>
-
-              {/* Data Security */}
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Lock className="w-6 h-6 text-green-600" />
-                  5. Data Security
-                </h2>
-                <p className="text-gray-700 mb-4">
-                  We implement robust security measures to protect your personal information:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li><strong>Encryption:</strong> SSL/TLS encryption for data in transit, AES-256 encryption for data at rest</li>
-                  <li><strong>Access Controls:</strong> Role-based access with multi-factor authentication</li>
-                  <li><strong>Regular Audits:</strong> Security assessments and vulnerability testing</li>
-                  <li><strong>Employee Training:</strong> Data protection and privacy training programs</li>
-                  <li><strong>Secure Infrastructure:</strong> Firewalls, intrusion detection, and monitoring systems</li>
-                  <li><strong>Backup and Recovery:</strong> Regular data backups and disaster recovery plans</li>
-                </ul>
-                <p className="text-gray-700 italic">
-                  Note: While we take reasonable measures to protect your data, no security system is completely secure. We cannot guarantee absolute security of your information.
-                </p>
-              </section>
-
-              {/* Data Retention */}
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Data Retention</h2>
-                <p className="text-gray-700 mb-4">
-                  We retain your personal information for as long as necessary to:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Provide our services and maintain your account</li>
-                  <li>Comply with legal, tax, and accounting obligations</li>
-                  <li>Resolve disputes and enforce our agreements</li>
-                  <li>Maintain business records and analytics</li>
-                </ul>
-                <p className="text-gray-700">
-                  Typically, we retain data for 7 years after account closure for legal and compliance purposes. You may request earlier deletion subject to our legal obligations.
-                </p>
-              </section>
-
-              {/* Your Rights */}
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <UserCheck className="w-6 h-6 text-blue-600" />
-                  7. Your Privacy Rights
-                </h2>
-                <p className="text-gray-700 mb-4">
-                  You have the following rights regarding your personal information:
-                </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">7.1 Access and Portability</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Request a copy of your personal data</li>
-                  <li>Download your data in a machine-readable format</li>
-                  <li>Request information about how we process your data</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">7.2 Correction and Update</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Update inaccurate or incomplete information</li>
-                  <li>Correct errors in your personal data</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">7.3 Deletion</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Request deletion of your account and data</li>
-                  <li>Right to be forgotten (subject to legal requirements)</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">7.4 Opt-Out</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Unsubscribe from marketing communications</li>
-                  <li>Disable cookies through browser settings</li>
-                  <li>Opt-out of targeted advertising</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">7.5 Object and Restrict</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li>Object to certain data processing activities</li>
-                  <li>Request restriction of processing</li>
-                  <li>Withdraw consent for specific uses</li>
-                </ul>
-
-                <div className="bg-blue-50 rounded-lg p-6 mt-6">
-                  <p className="text-gray-700 font-semibold mb-2">To exercise your rights:</p>
-                  <p className="text-gray-700">Email us at <a href="mailto:privacy@groundwale.com" className="text-blue-600 hover:text-blue-700">privacy@groundwale.com</a> or access your account settings.</p>
-                </div>
-              </section>
-
-              {/* Cookies and Tracking */}
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Cookies and Tracking Technologies</h2>
-                <p className="text-gray-700 mb-4">
-                  We use cookies and similar tracking technologies to enhance your experience:
-                </p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">8.1 Types of Cookies</h3>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li><strong>Essential Cookies:</strong> Required for Platform functionality</li>
-                  <li><strong>Performance Cookies:</strong> Collect analytics and usage data</li>
-                  <li><strong>Functional Cookies:</strong> Remember your preferences</li>
-                  <li><strong>Advertising Cookies:</strong> Deliver targeted advertisements</li>
-                </ul>
-
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">8.2 Managing Cookies</h3>
-                <p className="text-gray-700">
-                  You can control cookies through your browser settings. Note that disabling cookies may affect Platform functionality.
-                </p>
-              </section>
-
-              {/* Third-Party Links */}
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Third-Party Links and Services</h2>
-                <p className="text-gray-700">
-                  Our Platform may contain links to third-party websites and services. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any personal information.
-                </p>
-              </section>
-
-              {/* Children's Privacy */}
-              <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Children's Privacy</h2>
-                <p className="text-gray-700">
-                  Our Platform is not intended for users under 18 years of age. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us immediately for deletion.
+                <p className="text-gray-700 font-semibold">
+                  We do not sell your Personal Information.
                 </p>
               </section>
 
               {/* International Transfers */}
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">11. International Data Transfers</h2>
-                <p className="text-gray-700 mb-4">
-                  Your information may be transferred to and processed in countries other than India. We ensure appropriate safeguards are in place:
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">5. International (Cross-Border) Transfers</h2>
+                <p className="text-gray-700">
+                  You authorize us to transfer, store, and process your information in and outside India (including to countries that may have different data protection standards) with appropriate safeguards and only for purposes described in this Policy.
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                  <li>Standard contractual clauses approved by regulatory authorities</li>
-                  <li>Adequacy decisions by Indian data protection authorities</li>
-                  <li>Compliance with international data protection standards</li>
-                </ul>
               </section>
 
-              {/* Updates to Policy */}
+              {/* Security */}
               <section className="mb-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <Bell className="w-6 h-6 text-orange-600" />
-                  12. Changes to This Privacy Policy
+                  <Lock className="w-6 h-6 text-green-600" />
+                  6. Security
                 </h2>
                 <p className="text-gray-700">
-                  We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by:
+                  We use reasonable technical and organizational measures to protect Personal Information (encryption in transit where appropriate, access controls, monitoring, audits, etc.). However, no electronic transmission or storage is 100% secure. We cannot guarantee absolute security and are not liable for breaches arising from factors beyond our reasonable control.
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mt-4">
-                  <li>Posting the updated policy on this page</li>
-                  <li>Sending an email notification</li>
-                  <li>Displaying a prominent notice on our Platform</li>
-                  <li>Updating the "Last Updated" date</li>
+              </section>
+
+              {/* Data Retention */}
+              <section className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Data Retention</h2>
+                <p className="text-gray-700">
+                  We retain Personal Information for as long as necessary to provide Services, comply with legal obligations, resolve disputes, and enforce agreements. We may retain anonymised data indefinitely.
+                </p>
+              </section>
+
+              {/* Your Choices & Rights */}
+              <section className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <UserCheck className="w-6 h-6 text-blue-600" />
+                  8. Your Choices & Rights
+                </h2>
+                <p className="text-gray-700 mb-4">You may:</p>
+                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
+                  <li><strong>Access/Correct/Update</strong> your Personal Information via your account or by writing to us.</li>
+                  <li><strong>Withdraw consent</strong> (prospectively) for specific processing, subject to service limitations.</li>
+                  <li><strong>Delete/Deactivate account:</strong> Write to us; some data may be retained as required by law or legitimate interests (e.g., fraud prevention, accounting).</li>
+                </ul>
+                <p className="text-gray-700">
+                  We will respond within a reasonable time frame.
+                </p>
+              </section>
+
+              {/* Children's Privacy */}
+              <section className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Children's Privacy</h2>
+                <p className="text-gray-700">
+                  Groundwale is intended for persons competent to contract. Minors may use the platform only through a parent/legal guardian who consents on their behalf. If you believe a minor has provided information without such consent, please contact us to delete it.
+                </p>
+              </section>
+
+              {/* Cookies */}
+              <section className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Cookies & Similar Technologies</h2>
+                <p className="text-gray-700">
+                  We use cookies/SDKs and similar tools to enable core features (login, sessions), preferences, analytics, and fraud prevention. You can manage cookies in your browser/device settings, but some features may not function properly if disabled.
+                </p>
+              </section>
+
+              {/* Third-Party Links */}
+              <section className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">11. Third-Party Links</h2>
+                <p className="text-gray-700">
+                  The Website/App may contain links to third-party sites/services. Their privacy practices are not governed by this Policy—please review their policies before use.
+                </p>
+              </section>
+
+              {/* WhatsApp Policy */}
+              <section className="mb-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <Bell className="w-6 h-6 text-green-600" />
+                  12. WhatsApp Policy
+                </h2>
+                <p className="text-gray-700 mb-4">
+                  If you opt in, we may send OTPs, booking confirmations, reminders, and service updates via WhatsApp.
+                </p>
+                <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>You can opt out anytime by replying "STOP" on WhatsApp or by changing communication preferences in the App.</li>
+                  <li>Message frequency varies by your activity. Standard data/SMS charges may apply.</li>
                 </ul>
               </section>
 
-              {/* Data Protection Officer */}
+              {/* Grievance Redressal & Contact */}
               <section className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Data Protection Officer</h2>
-                <p className="text-gray-700 mb-4">
-                  We have appointed a Data Protection Officer (DPO) to oversee our data protection practices. You may contact our DPO with any privacy-related concerns.
-                </p>
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <p className="text-gray-700 mb-2"><strong>Data Protection Officer</strong></p>
-                  <p className="text-gray-700 mb-2">Email: dpo@groundwale.com</p>
-                  <p className="text-gray-700">Phone: +91 0000000000</p>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">13. Grievance Redressal & Contact</h2>
+                
+                <div className="bg-gray-50 rounded-lg p-6 mb-4">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">Grievance Officer (per applicable IT Rules):</h3>
+                  <p className="text-gray-700 mb-2"><strong>Name:</strong> [Grievance Officer Name]</p>
+                  <p className="text-gray-700 mb-2"><strong>Email:</strong> grievance@groundwale.com</p>
+                  <p className="text-gray-700 mb-2"><strong>Address:</strong> [Registered/Corporate Address]</p>
+                  <p className="text-gray-700"><strong>Working hours:</strong> Mon–Sat, 8:30 a.m. to 7:30 p.m. IST</p>
+                </div>
+
+                <div className="bg-blue-50 rounded-lg p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">General Privacy Queries / Data Requests:</h3>
+                  <p className="text-gray-700 mb-4">
+                    <strong>Email:</strong> privacy@groundwale.com / support@groundwale.com
+                  </p>
+                  <ul className="list-disc pl-6 space-y-2 text-gray-700">
+                    <li>To access/correct/update data or to know categories of third parties your data has been shared with (where applicable), write to privacy@groundwale.com from your registered email/phone.</li>
+                    <li>We aim to respond within an appropriate timeframe.</li>
+                  </ul>
                 </div>
               </section>
 
-              {/* Contact Information */}
+              {/* Changes to Policy */}
               <section className="mb-0">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">14. Contact Us</h2>
-                <p className="text-gray-700 mb-4">
-                  If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">14. Changes to this Policy</h2>
+                <p className="text-gray-700">
+                  We may update this Policy from time to time. Material changes will be posted on this page with a revised Updated date. Please review periodically.
                 </p>
-                <div className="bg-green-50 rounded-lg p-6">
-                  <p className="text-gray-700 mb-2"><strong>Groundwale Technologies Pvt. Ltd.</strong></p>
-                  <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@groundwale.com</p>
-                  <p className="text-gray-700 mb-2"><strong>Phone:</strong> +91 0000000000</p>
-                  <p className="text-gray-700 mb-2"><strong>Address:</strong> [Your Complete Address], India</p>
-                  <p className="text-gray-700"><strong>Website:</strong> www.groundwale.com</p>
-                </div>
               </section>
 
             </div>

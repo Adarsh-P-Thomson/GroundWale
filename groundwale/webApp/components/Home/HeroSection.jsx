@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { Search, MapPin, Calendar, TrendingUp } from "lucide-react"
 
 export default function HeroSection() {
@@ -66,10 +67,12 @@ export default function HeroSection() {
               </div>
 
               {/* Search Button */}
-              <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 whitespace-nowrap">
-                <Search className="w-5 h-5" />
-                <span className="hidden sm:inline">Search</span>
-              </button>
+              <Link href="/bookings">
+                <button className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all transform hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 whitespace-nowrap">
+                  <Search className="w-5 h-5" />
+                  <span className="hidden sm:inline">Search</span>
+                </button>
+              </Link>
             </div>
           </div>
 

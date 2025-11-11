@@ -15,7 +15,7 @@ import {
 
 const bookingCategories = [
   {
-    id: "grounds",
+    id: "bookings",
     title: "Book Grounds",
     description: "Premium sports grounds for cricket, football, and more",
     icon: MapPin,
@@ -25,7 +25,7 @@ const bookingCategories = [
     features: ["Verified Venues", "Instant Booking", "Best Prices"]
   },
   {
-    id: "turfs",
+    id: "bookings",
     title: "Book Turfs",
     description: "Artificial and natural turf facilities for all sports",
     icon: Trophy,

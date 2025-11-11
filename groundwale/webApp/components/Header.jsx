@@ -419,7 +419,7 @@ export default function Header() {
           <LocationBar />
 
           <nav className="nav flex items-center gap-10">
-            <Link href="/userprofile" className="nav-link flex items-center gap-2">
+            <Link href="/bookings" className="nav-link flex items-center gap-2">
               <SportsBaseballIcon style={{ fontSize: 30 }} /> {/* Slightly bigger than medium */}
               <span>Book</span>
             </Link>
