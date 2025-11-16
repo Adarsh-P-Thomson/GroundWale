@@ -164,7 +164,7 @@ export default function ServicePage() {
             className="text-lg text-gray-600 font-medium tracking-wide mt-2 tagline"
             style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}
           >
-            India's #1 Sports Booking App
+            India&apos;s #1 Sports Booking App
           </p>
         </div>
       </div>
