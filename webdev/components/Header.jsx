@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { X, User, CheckCircle, AlertCircle, Search } from "lucide-react"
+import { X, User, CheckCircle, AlertCircle, Search, MapPin, Menu } from "lucide-react"
 import SportsBaseballIcon from "@mui/icons-material/SportsBaseball"
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun"
 import "./Header.css"
@@ -47,6 +47,15 @@ function SearchBar() {
         Search For <span className="animated-game">{displayText}</span>
         <span className="cursor-blink">|</span>
       </div>
+    </div>
+  )
+}
+
+function LocationBar() {
+  return (
+    <div className="search-bar-container">
+      <MapPin size={20} className="search-icon" />
+      <div className="search-text">Search for grounds</div>
     </div>
   )
 }
@@ -359,8 +368,9 @@ function LoginModal({ isOpen, onClose, onLoginSuccess, onInvalidOtp }) {
 
 export default function Header() {
   const [isModalOpen, setModalOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setLoggedIn] = useState(false)
   const [notification, setNotification] = useState(null)
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
   const router = useRouter()
 
   const handleLoginSuccess = () => {
@@ -404,21 +414,37 @@ export default function Header() {
             />
           </div>
 
-          <SearchBar />
+          <div className="search-bars-container">
+            <SearchBar />
+            <LocationBar />
+          </div>
 
-          <nav className="nav flex items-center gap-10">
-            <Link href="/Grounds" className="nav-link flex items-center gap-2">
-              <SportsBaseballIcon style={{ fontSize: 30 }} /> {/* Slightly bigger than medium */}
+          <nav className={`nav ${isMobileMenuOpen ? 'nav-mobile-open' : ''}`}>
+            <Link href="/bookings" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              <SportsBaseballIcon style={{ fontSize: 30 }} />
               <span>Book</span>
             </Link>
 
-            <Link href="#" className="nav-link flex items-center gap-2">
-              <DirectionsRunIcon style={{ fontSize: 30 }} /> {/* Slightly bigger than medium */}
+            <Link href="#" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
+              <DirectionsRunIcon style={{ fontSize: 30 }} />
               <span>Train</span>
             </Link>
+            
+            <div className="nav-mobile-actions">
+              {isLoggedIn ? (
+                <Link href="/userprofile" className="btn btn-user-icon" onClick={() => setMobileMenuOpen(false)}>
+                  <User size={20} />
+                  <span>Profile</span>
+                </Link>
+              ) : (
+                <button className="btn btn-solid" onClick={() => { setModalOpen(true); setMobileMenuOpen(false); }}>
+                  Login / Signup
+                </button>
+              )}
+            </div>
           </nav>
 
-          <div className="buttons">
+          <div className="desktop-actions">
             {isLoggedIn ? (
               <Link href="/userprofile" className="btn btn-user-icon" title="Go to Profile">
                 <User size={20} />
@@ -429,6 +455,14 @@ export default function Header() {
               </button>
             )}
           </div>
+          
+          <button 
+            className="hamburger-menu" 
+            onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </header>
 

@@ -121,10 +121,10 @@ export default function Footer() {
             <a href="#" className="footer-link">
               Cancellation Policy
             </a>
-            <a href="#" className="footer-link">
+            <a href="/terms" className="footer-link">
               Terms & Conditions
             </a>
-            <a href="#" className="footer-link">
+            <a href="/privacy" className="footer-link">
               Privacy Policy
             </a>
           </div>
