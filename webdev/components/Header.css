@@ -449,7 +449,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(0.5rem, 2vw, 2rem);
+  gap: clamp(1rem, 2.5vw, 2.5rem);
   position: relative;
 }
 
@@ -470,19 +470,12 @@
   color: #000000;
 }
 
-.search-bars-container {
-  display: flex;
-  gap: clamp(0.5rem, 1.5vw, 1rem);
-  align-items: center;
-  flex: 1;
-  max-width: 600px;
-}
-
 .nav {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2.5vw, 2.5rem);
+  gap: clamp(1.5rem, 3vw, 3rem);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
 }
 
 .nav-mobile-actions {
@@ -509,6 +502,7 @@
 .desktop-actions {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .nav-link {
@@ -871,14 +865,14 @@
 .search-bar-container {
   display: flex;
   align-items: center;
-  width: clamp(180px, 20vw, 280px);
+  flex: 1;
+  max-width: clamp(300px, 35vw, 500px);
   height: clamp(42px, 5vh, 50px);
   background-color: #ffffff;
   border: 1.5px solid #d1d5db;
   border-radius: 12px;
   padding: 0 clamp(12px, 1.5vw, 20px);
   gap: clamp(8px, 1vw, 12px);
-  flex-shrink: 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
@@ -945,13 +939,13 @@
 /* Responsive adjustments for search bars */
 @media (max-width: 1200px) {
   .search-bar-container {
-    width: clamp(160px, 18vw, 240px);
+    max-width: clamp(250px, 30vw, 400px);
   }
 }
 
 @media (max-width: 992px) {
   .search-bar-container {
-    width: clamp(140px, 16vw, 200px);
+    max-width: clamp(200px, 28vw, 350px);
     height: clamp(40px, 4.5vh, 46px);
   }
   
@@ -962,7 +956,8 @@
 
 @media (max-width: 768px) {
   .search-bar-container {
-    width: clamp(120px, 22vw, 180px);
+    flex: 1;
+    max-width: none;
     height: 40px;
     padding: 0 12px;
     gap: 8px;
@@ -976,11 +971,16 @@
     width: 16px;
     height: 16px;
   }
+  
+  .hamburger-menu,
+  .nav,
+  .desktop-actions {
+    display: none !important;
+  }
 }
 
 @media (max-width: 640px) {
   .search-bar-container {
-    width: clamp(110px, 24vw, 150px);
     height: 38px;
     padding: 0 10px;
     border-radius: 10px;
@@ -993,7 +993,6 @@
 
 @media (max-width: 480px) {
   .search-bar-container {
-    width: clamp(100px, 26vw, 130px);
     height: 36px;
     padding: 0 8px;
     gap: 6px;
@@ -1013,3 +1012,106 @@
   }
 }
 
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,1) 100%);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  z-index: 1000;
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  padding: 8px 4px;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+}
+
+.bottom-nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #0088cc 0%, #00b8e6 100%);
+  border-radius: 0 0 3px 3px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bottom-nav-item:active {
+  transform: scale(0.95);
+}
+
+.bottom-nav-item:hover,
+.bottom-nav-item:focus {
+  color: #0088cc;
+}
+
+.bottom-nav-item:hover::before {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.bottom-nav-item svg {
+  flex-shrink: 0;
+}
+
+/* Show bottom nav on mobile, hide hamburger and desktop nav */
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: flex;
+  }
+  
+  body {
+    padding-bottom: 70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bottom-nav-item {
+    font-size: 11px;
+    padding: 6px 4px;
+    gap: 3px;
+  }
+  
+  .bottom-nav-item svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-nav-item {
+    font-size: 10px;
+    padding: 6px 2px;
+  }
+  
+  .bottom-nav-item span {
+    display: block;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

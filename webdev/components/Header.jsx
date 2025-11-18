@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { X, User, CheckCircle, AlertCircle, Search, MapPin, Menu } from "lucide-react"
+import { X, User, CheckCircle, AlertCircle, Search, MapPin, Menu, Home } from "lucide-react"
 import SportsBaseballIcon from "@mui/icons-material/SportsBaseball"
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun"
 import "./Header.css"
@@ -401,7 +401,7 @@ export default function Header() {
     <>
       <header className="header">
         <div className="header-content">
-          <div className="logo">
+          <Link href="/" className="logo">
             <Image
               src={LogoImage || "/placeholder.svg"}
               alt="Company Logo"
@@ -412,12 +412,9 @@ export default function Header() {
                 transformOrigin: "center",
               }}
             />
-          </div>
+          </Link>
 
-          <div className="search-bars-container">
-            <SearchBar />
-            <LocationBar />
-          </div>
+          <SearchBar />
 
           <nav className={`nav ${isMobileMenuOpen ? 'nav-mobile-open' : ''}`}>
             <Link href="/bookings" className="nav-link" onClick={() => setMobileMenuOpen(false)}>
@@ -481,6 +478,33 @@ export default function Header() {
           autoClose={notification.type === "success" ? 3000 : 4000}
         />
       )}
+      
+      {/* Mobile Bottom Navigation */}
+      <nav className="mobile-bottom-nav">
+        <Link href="/" className="bottom-nav-item">
+          <Home size={24} />
+          <span>Home</span>
+        </Link>
+        <Link href="/bookings" className="bottom-nav-item">
+          <SportsBaseballIcon style={{ fontSize: 28 }} />
+          <span>Book</span>
+        </Link>
+        <Link href="#" className="bottom-nav-item">
+          <DirectionsRunIcon style={{ fontSize: 28 }} />
+          <span>Train</span>
+        </Link>
+        {isLoggedIn ? (
+          <Link href="/userprofile" className="bottom-nav-item">
+            <User size={24} />
+            <span>Profile</span>
+          </Link>
+        ) : (
+          <button className="bottom-nav-item" onClick={() => setModalOpen(true)}>
+            <User size={24} />
+            <span>Login</span>
+          </button>
+        )}
+      </nav>
     </>
   )
 }
