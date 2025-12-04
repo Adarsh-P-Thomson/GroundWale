@@ -1,11 +1,11 @@
-name: Deploy Webdev to GitHub Pages
+name: Deploy User Website to GitHub Pages
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'webdev/**'
+      - 'user website/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -32,11 +32,11 @@ jobs:
           node-version: '20'
       
       - name: Install dependencies
-        working-directory: ./webdev
+        working-directory: ./user website
         run: npm ci
       
       - name: Build Next.js site
-        working-directory: ./webdev
+        working-directory: ./user website
         run: npm run build
         env:
           NODE_ENV: production
@@ -44,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./webdev/out
+          path: ./user website/out
 
   deploy:
     environment:
